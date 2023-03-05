@@ -1,0 +1,13 @@
+{
+    "books":[],
+    "categories":[
+        {
+            "id":"1",
+            "name":"roman"
+        },
+        {
+            "id":"2",
+            "name":"hikaye"
+        }
+    ]
+}
