@@ -2,14 +2,21 @@ import React from "react";
 
 import { useSelector } from "react-redux";
 
+import {BrowserRouter,Routes,Route} from "react-router-dom"
+
+import Home from "./pages/Home";
+import NotFound from "./pages/NotFound";
+
 function App() {
-  const allStates=useSelector(state=>state)
-  console.log(allStates);
-  
+ const {bookState}=useSelector(state=>state)
+  console.log(bookState);
   return (
-    <div className="App">
-    <h1>Library App </h1>
-    </div>
+    <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<Home />}/>
+      <Route path="*" element={<NotFound/>}/>
+    </Routes>
+    </BrowserRouter>
   );
 }
 
