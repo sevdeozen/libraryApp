@@ -17,3 +17,4 @@ B. İş sırası:
         -!!! Store da bulunacak statelere karar vermek(sonradan ekleme yapılabilir)
         (booksState,categoriesState)
     4.Router yapısının kurulması
+    5. Uygulama açılırken redux içerisindeki stateleri doldurmak.
