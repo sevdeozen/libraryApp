@@ -27,7 +27,7 @@ function App() {
           type: actionTypes.bookActions.GET_BOOKS_SUCCESS,
           payload: res.data,
         });
-       }, 2000);
+       }, 1000);
       })
       .catch((err) => {
        
@@ -47,7 +47,7 @@ function App() {
           type: actionTypes.categoryActions.GET_CATEGORIES_SUCCESS,
           payload: res.data,
         });
-       }, 2000);
+       }, 1000);
       })
       .catch((err) => {
         dispatch({

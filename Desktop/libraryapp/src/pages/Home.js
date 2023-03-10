@@ -2,11 +2,13 @@ import React from "react";
 import Header from "../components/Header";
 import { Link } from "react-router-dom";
 
+import ListBooks from "../components/ListBooks";
+
 const Home=()=>{
     return(
         <div>
             <Header />
-            <h1>Anasayfa</h1>
+            <ListBooks />
         </div>
     )
 }

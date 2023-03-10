@@ -4,21 +4,36 @@
             "id":"1",
             "title":"Eylül",
             "author":"Mehmet Rauf",
-            "publisher":"yapıkredi kültür yayınları",
+            "publisher":"Yapıkredi kültür yayınları",
             "price": 48,
             "isbn": "452587469153",
             "categoryId":"1"
+
+        },
+        {
+            "id":"2",
+            "title":"Yaprak Dökümü",
+            "author":"Reşat Nuri Güntekin",
+            "publisher":"İletişim yayınları",
+            "price": 63,
+            "isbn": "84765284935",
+            "categoryId":"2"
 
         }
     ],
     "categories":[
         {
             "id":"1",
-            "name":"roman"
+            "name":"Roman"
         },
         {
             "id":"2",
-            "name":"hikaye"
+            "name":"Hikaye"
+        },
+        {
+            "id":"3",
+            "name":"Deneme"
         }
+
     ]
 }
