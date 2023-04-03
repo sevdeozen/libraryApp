@@ -1,39 +1,54 @@
 {
-    "books":[
-        {
-            "id":"1",
-            "title":"Eylül",
-            "author":"Mehmet Rauf",
-            "publisher":"Yapıkredi kültür yayınları",
-            "price": 48,
-            "isbn": "452587469153",
-            "categoryId":"1"
-
-        },
-        {
-            "id":"2",
-            "title":"Yaprak Dökümü",
-            "author":"Reşat Nuri Güntekin",
-            "publisher":"İletişim yayınları",
-            "price": 63,
-            "isbn": "84765284935",
-            "categoryId":"2"
-
-        }
-    ],
-    "categories":[
-        {
-            "id":"1",
-            "name":"Roman"
-        },
-        {
-            "id":"2",
-            "name":"Hikaye"
-        },
-        {
-            "id":"3",
-            "name":"Deneme"
-        }
-
-    ]
+  "books": [
+    {
+      "id": "1",
+      "title": "Eylül",
+      "author": "Mehmet Rauf",
+      "publisher": "Yapıkredi kültür yayınları",
+      "price": 48,
+      "isbn": "452587469153",
+      "categoryId": "1"
+    },
+    {
+      "id": "2",
+      "title": "Yaprak Dökümü",
+      "author": "Reşat Nuri Güntekin",
+      "publisher": "İletişim yayınları",
+      "price": 63,
+      "isbn": "84765284935",
+      "categoryId": "2"
+    },
+    {
+      "id": "1678901836362",
+      "title": "rtr",
+      "author": "trte",
+      "publisher": "grtg",
+      "price": "",
+      "isbn": "",
+      "categoryId": "1"
+    },
+    {
+      "id": "1679709073754",
+      "title": "deneme",
+      "author": "deneme",
+      "publisher": "",
+      "price": "55",
+      "isbn": "",
+      "categoryId": "3"
+    }
+  ],
+  "categories": [
+    {
+      "id": "1",
+      "name": "Roman"
+    },
+    {
+      "id": "2",
+      "name": "Hikaye"
+    },
+    {
+      "id": "3",
+      "name": "Deneme"
+    }
+  ]
 }

@@ -1,4 +1,4 @@
-export const upperFirsLetter = (sample = "") => {
+export const upperFirstLetter = (sample = "") => {
   let words = sample.split(" ");
   console.log(words);
 

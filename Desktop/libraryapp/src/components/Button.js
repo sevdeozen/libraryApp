@@ -11,7 +11,7 @@ const Button = (
     <button
       className={`btn btn-${type} ${className}`}
       style={style}
-      onClick={onclick} >
+      onClick={onClick} >
       {text}
     </button>
   );

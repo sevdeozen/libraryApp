@@ -1,13 +1,35 @@
-import React from "react";
+import React,{ useState } from "react";
 
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
-import { upperFirsLetter } from "../utils/functions";
+import { upperFirstLetter } from "../utils/functions";
 import Button from "./Button";
+import Modal from "./Modal";
+
+import api from "../api/api";
+import urls from "../api/urls";
+
+import actionTypes from "../redux/actions/actionTypes";
+import { useNavigate } from "react-router-dom";
 
 const ListBooks = () => {
-  const { bookState, categoriesState } = useSelector((state) => state);
-  console.log(bookState);
+  const { bookState, categoriesState, themeState } = useSelector(
+    (state) => state
+  );
+  const dispatch = useDispatch();
+  const navigate=useNavigate()
+  const [openDeleteModal,setOpenDeleteModal]=useState(false)
+  const [willDeleteBook,setWillDeleteBook]=useState("")
+
+  const deleteBook = (id) => {
+    api
+      .delete(`${urls.books}/${id}`)
+      .then((res) => {
+        dispatch({ type: actionTypes.bookActions.DELETE_BOOK, payload: id });
+        setOpenDeleteModal(false)
+      })
+      .catch((err) => {});
+  };
   return (
     <div>
       {bookState.books.length === 0 && (
@@ -18,8 +40,12 @@ const ListBooks = () => {
         </div>
       )}
       {bookState.books.length > 0 && (
-        <div >
-          <table className="table table-striped">
+        <div>
+          <table
+            className={`table table-striped ${
+              themeState === "light" ? "table-light" : "table-dark"
+            } `}
+          >
             <thead>
               <tr>
                 <th scope="col">Sıra No</th>
@@ -37,15 +63,32 @@ const ListBooks = () => {
                 return (
                   <tr key={book.id}>
                     <th scope="row">{index + 1}</th>
-                    <td>{upperFirsLetter(book.title)}</td>
-                    <td>{upperFirsLetter(myCategory.name)}</td>
+                    <td>{upperFirstLetter(book.title)}</td>
+                    <td>{upperFirstLetter(myCategory.name)}</td>
                     <td>
-                      <div
-                        className="btn-group"
-                        role="group" >
-                       <Button className="btn-sm" text="Detay" type="secondary" />
-                       <Button className="btn-sm" text="Sil" type="danger" />
-                       <Button className="btn-sm" text="Güncelle" type="primary" />
+                      <div className="btn-group" role="group">
+                        <Button
+                          className="btn-sm"
+                          text="Detay"
+                          type="secondary"
+                          onClick={()=>navigate(`/book-detail/${book.id}`)}
+                        />
+                        <Button
+                          onClick={() => {
+                            setOpenDeleteModal(true)
+                            setWillDeleteBook(book.id)
+                          }}
+                          className="btn-sm"
+                          text="Sil"
+                          type="danger"
+                        />
+                        <Button
+                          className="btn-sm"
+                          text="Güncelle"
+                          type="warning"
+                          onClick={()=>navigate(`/edit-book/${book.id}`)}
+
+                        />
                       </div>
                     </td>
                   </tr>
@@ -55,6 +98,16 @@ const ListBooks = () => {
           </table>
         </div>
       )}
+      <Modal
+        title="Kitap Silme"
+        content="Kitabı slimek istediğinizden emin misiniz?" 
+        hasConfirmButton={true}
+        confirmButtonText="Sil"
+        cancelButtonText="Vazgeç"
+        confirmButtonClick={()=>deleteBook(willDeleteBook)}
+        cancelButtonClick={()=>setOpenDeleteModal(false)}
+        visible={openDeleteModal}
+      />
     </div>
   );
 };
